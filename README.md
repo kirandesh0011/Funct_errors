@@ -1,33 +1,26 @@
-**ElectionCampus**
+**WindEnergy**
 
-**Overview:**
+This is a smart contract written in Solidity, a programming language used for creating smart contracts on the Ethereum blockchain. The contract is designed to manage wind energy production.
 
-The ElectionCampus smart contract is designed to facilitate voting for two individuals (referred to as "personX" and "personY") within a campus or organizational setting. It allows participants to cast their votes for either personX or personY, tracks the total number of votes each person receives, and provides a mechanism for determining the winner based on the vote count.
+**Contract Overview:**
+- The contract is named `WindEnergy`.
+- It has three state variables:
+  - `targetEnergy`: Represents the target energy to be produced (set to 10000 by default).
+  - `currentEnergy`: Tracks the current amount of energy produced.
+  - `windFlow`: Indicates the current wind flow, which contributes to energy production.
 
-**Contract Features:**
-
-1. **Voting Mechanism:** Participants can vote for personX or personY by calling the `voteForPersonX` or `voteForPersonY` functions respectively. They specify the number of votes they wish to cast, and the contract updates the total number of votes for the respective candidates.
-
-2. **Nominee Eligibility:** The `nomineeEligibility` function is provided to check if a nominee meets a certain age requirement. Currently, the requirement is set to be above 35 years old.
-
-3. **Result Checking:** The `checkResult` function allows anyone to check the current status of the election. If the total votes for personX and personY are both 50, indicating a tie, the function will revert with a message indicating that a re-election needs to be organized. Otherwise, the function does not revert, allowing the election to proceed.
-
-**Contract Deployment:**
-
-The contract should be deployed with the addresses of personX and personY provided as constructor arguments. These addresses represent the Ethereum accounts associated with each candidate.
+**Functions:**
+1. **Constructor:** Initializes the `currentEnergy` and `windFlow` variables to 0.
+2. **Reach_TargetEnergy:** External function that updates the `windFlow` and adds it to `currentEnergy`. It ensures that the provided wind flow is greater than 20.
+3. **Check_speed:** External pure function that checks the speed of a fan. It ensures that the fan speed is within a specified range (greater than 0 and not exceeding 5).
 
 **License:**
+This contract is licensed under the MIT License, which allows anyone to use, modify, and distribute the code for any purpose.
 
-This smart contract is released under the MIT License, which allows for free use, modification, and distribution under certain conditions. See the SPDX-License-Identifier comment at the beginning of the contract code for more details.
+**SPDX-License-Identifier: MIT**
 
-**Author:**
+**Author**
 
-Kiran deshpande
+Kiran 
 
-**Contact:**
-
-kirandeshpande0011@gmail.com
-
-**Date:**
-
-28/02/2024
+kirandesh0011@gmai.com
