@@ -1,0 +1,31 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract WindEnergy {
+    uint public targetEnergy = 10000;
+    uint public currentEnergy;
+    uint public windFlow;
+
+    constructor() {
+        currentEnergy = 0;
+        windFlow = 0;
+
+    }
+
+    function Reach_TargetEnergy(uint _windFlow) external {
+        assert(_windFlow > 20);
+        windFlow = _windFlow;
+        currentEnergy += windFlow;
+        
+    }
+
+    function Check_speed(uint fanSpeed) external pure {
+        require(fanSpeed > 0, "Fan speed should be greater than 0");
+        require(fanSpeed <= 5, "Fan speed should not exceed 5");
+        
+        if (fanSpeed == 5) {
+            revert("Fan has reached its saturation speed");
+        }
+    
+    }
+}
